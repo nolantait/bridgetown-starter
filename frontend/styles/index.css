@@ -1,0 +1,70 @@
+/* If you need to add @import statements, do so up here */
+
+@import "jit-refresh.css"; /* triggers frontend rebuilds */
+
+/* Set up Tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --grid-min: 30ch;
+    --block-flow-xs: min(0.5rem, 1vh);
+    --block-flow-sm: min(1rem,  2vh);
+    --block-flow-md: min(2rem,  4vh);
+    --block-flow-lg: min(4rem, 8vh);
+    --block-flow-xl: min(8rem, 16vh);
+    --layout-gap-xs: clamp(0.5rem, 1vmax,   1rem);
+    --layout-gap-sm: clamp(1rem,   3vmax, 1.5rem);
+    --layout-gap-md: clamp(1.5rem, 6vmax,   3rem);
+    --layout-gap-lg: clamp(3rem,   8vmax,   4rem);
+    --padding-xs: clamp(0.5rem, 1%, 1rem);
+    --padding-sm: clamp(1rem, 3%, 1.5rem);
+    --padding-md: clamp(1.5rem, 6%, 3rem);
+    --padding-lg: clamp(3rem, 12%, 6rem);
+    --padding-xl: clamp(6rem, 24%, 12rem);
+    --margin-xs: clamp(0.5rem, 1%, 1rem);
+    --margin-sm: clamp(1rem, 3%, 1.5rem);
+    --margin-md: clamp(1.5rem, 6%, 3rem);
+    --margin-lg: clamp(3rem, 12%, 6rem);
+    --margin-xl: clamp(6rem, 24%, 12rem);
+  }
+
+  /* Default spacing for .block-flow elements */
+  :is(.block-flow) > * + * {
+    margin-block-start:
+      var(--block-flow, var(--block-flow-md));
+  }
+}
+
+@layer components {
+  .block-flow-xl > * {
+    --block-flow: var(--block-flow-xl);
+  }
+
+  .block-flow-lg > * {
+    --block-flow: var(--block-flow-lg);
+  }
+
+  .block-flow-md > * {
+    --block-flow: var(--block-flow-md);
+  }
+
+  .block-flow-sm > * {
+    --block-flow: var(--block-flow-sm);
+  }
+
+  .block-flow-xs > * {
+    --block-flow: var(--block-flow-xs);
+  }
+}
+
+body {
+  @apply p-md;
+  @apply block-flow;
+  @apply font-sans;
+  @apply bg-base-200 text-base-content;
+}
+
