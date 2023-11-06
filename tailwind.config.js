@@ -6,28 +6,25 @@ module.exports = {
   ],
   theme: {
     extend: {
-      gridTemplateColumns: {
-        responsive: "repeat(auto-fit, minmax(min(100%, var(--grid-min, 20ch)), 1fr))"
-      },
       gap: {
-        xs: "var(--layout-gap-xs)",
-        sm: "var(--layout-gap-sm)",
-        md: "var(--layout-gap-md)",
-        lg: "var(--layout-gap-lg)",
+        xs: "var(--spacing-xs)",
+        sm: "var(--spacing-sm)",
+        md: "var(--spacing-md)",
+        lg: "var(--spacing-lg)",
       },
       padding: {
-        xs: "var(--padding-xs)",
-        sm: "var(--padding-sm)",
-        md: "var(--padding-md)",
-        lg: "var(--padding-lg)",
-        xl: "var(--padding-xl)",
+        xs: "var(--spacing-xs)",
+        sm: "var(--spacing-sm)",
+        md: "var(--spacing-md)",
+        lg: "var(--spacing-lg)",
+        xl: "var(--spacing-xl)",
       },
       margin: {
-        xs: "var(--margin-xs)",
-        sm: "var(--margin-sm)",
-        md: "var(--margin-md)",
-        lg: "var(--margin-lg)",
-        xl: "var(--margin-xl)",
+        xs: "var(--spacing-xs)",
+        sm: "var(--spacing-sm)",
+        md: "var(--spacing-md)",
+        lg: "var(--spacing-lg)",
+        xl: "var(--spacing-xl)",
       }
     },
   },

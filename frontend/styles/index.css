@@ -7,64 +7,99 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
-    --grid-min: 30ch;
-    --block-flow-xs: min(0.5rem, 1vh);
-    --block-flow-sm: min(1rem,  2vh);
-    --block-flow-md: min(2rem,  4vh);
-    --block-flow-lg: min(4rem, 8vh);
-    --block-flow-xl: min(8rem, 16vh);
-    --layout-gap-xs: clamp(0.5rem, 1vmax,   1rem);
-    --layout-gap-sm: clamp(1rem,   3vmax, 1.5rem);
-    --layout-gap-md: clamp(1.5rem, 6vmax,   3rem);
-    --layout-gap-lg: clamp(3rem,   8vmax,   4rem);
-    --padding-xs: clamp(0.5rem, 1%, 1rem);
-    --padding-sm: clamp(1rem, 3%, 1.5rem);
-    --padding-md: clamp(1.5rem, 6%, 3rem);
-    --padding-lg: clamp(3rem, 12%, 6rem);
-    --padding-xl: clamp(6rem, 24%, 12rem);
-    --margin-xs: clamp(0.5rem, 1%, 1rem);
-    --margin-sm: clamp(1rem, 3%, 1.5rem);
-    --margin-md: clamp(1.5rem, 6%, 3rem);
-    --margin-lg: clamp(3rem, 12%, 6rem);
-    --margin-xl: clamp(6rem, 24%, 12rem);
+    --spacing-xs: clamp(0.5rem, 1%, 1rem);
+    --spacing-sm: clamp(1rem, 3%, 1.5rem);
+    --spacing-md: clamp(1.5rem, 6%, 3rem);
+    --spacing-lg: clamp(3rem, 12%, 6rem);
+    --spacing-xl: clamp(6rem, 24%, 12rem);
   }
 
-  /* Default spacing for .block-flow elements */
-  :is(.block-flow) > * + * {
-    margin-block-start:
-      var(--block-flow, var(--block-flow-md));
+  html, body {
+    overflow-x: none;
   }
+
+  code * {
+    @apply font-mono;
+  }
+
+  pre {
+    @apply max-w-full;
+    @apply overflow-x-auto;
+  }
+
 }
 
 @layer components {
-  .block-flow-xl > * {
-    --block-flow: var(--block-flow-xl);
+  .text-light {
+    @apply text-base-content text-opacity-75;
   }
 
-  .block-flow-lg > * {
-    --block-flow: var(--block-flow-lg);
+  .h1 {
+    @apply text-2xl md:text-3xl;
   }
 
-  .block-flow-md > * {
-    --block-flow: var(--block-flow-md);
+  .h2 {
+    @apply text-xl md:text-2xl;
   }
 
-  .block-flow-sm > * {
-    --block-flow: var(--block-flow-sm);
+  .h3 {
+    @apply text-lg md:text-xl;
   }
 
-  .block-flow-xs > * {
-    --block-flow: var(--block-flow-xs);
+  .h4 {
+    @apply text-lg;
   }
 }
 
-body {
-  @apply p-md;
-  @apply block-flow;
-  @apply font-sans;
-  @apply bg-base-200 text-base-content;
+@layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-base-100;
+  }
+
+  body {
+    @apply font-sans;
+    @apply text-base-content;
+    @apply bg-base-300;
+  }
 }
 
+.prose div.highlight {
+  @apply rounded-lg shadow-xl;
+}
+
+.prose code.highlighter-rouge,
+.prose table code {
+  @apply bg-base-100 rounded border-none px-2;
+}
+
+.prose h4 {
+  @apply text-xl;
+}
+
+.prose kbd {
+  @apply bg-white/50 text-neutral border-0;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: theme("colors.base-200") theme("colors.base-300");
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.66rem;
+  background: theme("colors.base-300")
+}
+
+*::-webkit-scrollbar-track {
+  background: theme("colors.base-200");
+  border-radius: 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply rounded bg-base-100 border;
+}

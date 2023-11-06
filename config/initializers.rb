@@ -1,4 +1,5 @@
 Bridgetown.configure do |config|
+
   # You can configure aspects of your Bridgetown site here instead of using
   # `bridgetown.config.yml`. For example:
   #
@@ -7,7 +8,7 @@ Bridgetown.configure do |config|
   #
   # You can also modify options on the configuration object directly, like so:
   #
-  # config.autoload_paths << "models"
+  config.autoload_paths << "lib"
   #
 
   # You can use `init` to initialize various Bridgetown features or plugin gems.
@@ -41,8 +42,9 @@ Bridgetown.configure do |config|
   # For more documentation on how to configure your site using this initializers file,
   # visit: https://edge.bridgetownrb.com/docs/configuration/initializers/
 
-  config.url = "https://example.com"
+  config.url = "https://mysite.com"
 
   init :"bridgetown-sitemap"
   init :"bridgetown-feed"
+  init :"bridgetown-seo-tag"
 end
