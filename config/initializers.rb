@@ -9,7 +9,6 @@ Bridgetown.configure do |config|
   # You can also modify options on the configuration object directly, like so:
   #
   config.autoload_paths << "lib"
-  #
 
   # You can use `init` to initialize various Bridgetown features or plugin gems.
   # For example, you can use the Dotenv gem to load environment variables from

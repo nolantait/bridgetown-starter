@@ -37,6 +37,28 @@ namespace :frontend do
     sh "yarn run esbuild-dev"
   rescue Interrupt
   end
+
+
+  desc "Writes a new syntax highlighting file from the lib/theme.rb"
+  task :theme do
+    require_relative "lib/theme"
+    Theme.mode(:dark).render(:scope => '.highlight').tap do |theme|
+      additions = <<~CSS
+        .highlight .nf {
+          color: #{Theme.palette[:base0D]};
+        }
+        .highlight .err {
+          color: #{Theme.palette[:base01]};
+          background-color: #e06c75;
+        }
+        .highlight .c1 {
+          color: #969DA8;
+        }
+      CSS
+
+      File.write("frontend/styles/syntax-highlighting.css", theme + additions)
+    end
+  end
 end
 
 #
