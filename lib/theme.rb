@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rouge"
 
 class Theme < Rouge::Themes::Base16

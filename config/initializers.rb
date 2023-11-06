@@ -1,5 +1,6 @@
-Bridgetown.configure do |config|
+# frozen_string_literal: true
 
+Bridgetown.configure do |config|
   # You can configure aspects of your Bridgetown site here instead of using
   # `bridgetown.config.yml`. For example:
   #

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bridgetown"
 
 Bridgetown.load_tasks
@@ -9,7 +11,7 @@ task default: :deploy
 # Standard set of tasks, which you can customize if you wish:
 #
 desc "Build the Bridgetown site for deployment"
-task :deploy => [:clean, "frontend:build"] do
+task deploy: [:clean, "frontend:build"] do
   Bridgetown::Commands::Build.start
 end
 
@@ -38,11 +40,10 @@ namespace :frontend do
   rescue Interrupt
   end
 
-
   desc "Writes a new syntax highlighting file from the lib/theme.rb"
   task :theme do
     require_relative "lib/theme"
-    Theme.mode(:dark).render(:scope => '.highlight').tap do |theme|
+    Theme.mode(:dark).render(scope: ".highlight").tap do |theme|
       additions = <<~CSS
         .highlight .nf {
           color: #{Theme.palette[:base0D]};

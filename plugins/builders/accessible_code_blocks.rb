@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Builders
   class AccessibleCodeBlocks < SiteBuilder
     def build
