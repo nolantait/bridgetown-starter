@@ -13,7 +13,7 @@ import "./turbo_transitions.js"
 // Import all JavaScript & CSS files from src/_components
 import components from "$components/**/*.{js,jsx,js.rb,css}"
 
-// import "@fontsource-variable/readex-pro"
+import "@fontsource-variable/readex-pro"
 // import "@fontsource-variable/fira-code"
 
 console.info("Bridgetown is loaded!")
